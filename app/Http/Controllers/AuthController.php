@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -17,13 +19,17 @@ class AuthController extends Controller
       'telp' => ['required', 'numeric'],
       'password' => ['required'],
     ]);
+    // $user =  User::where('telp',  $request->input('telp'))->first();
+    // // $user = User::find(1);
+    // // dd($user->password);
+    // dd(Hash::check($request->input('password'),$user->password));
     if (Auth::attempt($credentials)) {
-      $request->session()->regenerate();      
+      $request->session()->regenerate();
       return redirect()->route('adminDashboard');
     }
 
     return back()->withErrors([
-      'email' => 'The provided credentials do not match our records.',
+      'msg' => 'password atau nomor telpon yang anda masukkan salah',
     ])->onlyInput('email');
   }
 

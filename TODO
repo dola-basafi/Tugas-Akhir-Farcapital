@@ -1,15 +1,18 @@
+Todo:
+  ☐ ubah softdelete
+
 FrontEnd:
   admin:
-    ☐ create user @started(22-12-29 11:12)
+    ✔ create user @done(22-12-29 22:03)
     ☐ edit user 
 BackEnd:
   admin:
-    ☐ create user
-    ☐ edit user
-    ☐ delete user
+    ✔ create user @done(22-12-29 22:03)
+    ✘ edit user @cancelled(22-12-29 22:02)
+    ☐ delete user @started(22-12-29 22:03)
 
 Dummy Test:
-
+ddfdsfsdfdsf
 
     
 

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('telp')->unique();
             $table->integer('point')->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
     }    

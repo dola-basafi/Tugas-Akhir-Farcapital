@@ -24,7 +24,6 @@ return new class extends Migration
             $table->foreign('id_supplier')->references('id')->on('supplier') ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

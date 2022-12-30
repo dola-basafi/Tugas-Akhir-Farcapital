@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('telp')->unique();
             $table->string('email')->unique();
-            $table->softDeletes();
             $table->timestamps();
         });
     }

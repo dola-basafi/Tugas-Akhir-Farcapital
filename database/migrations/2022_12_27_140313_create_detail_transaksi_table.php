@@ -26,7 +26,6 @@ return new class extends Migration
             $table->foreign('id_transaksi')->references('id')->on('transaksi') ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

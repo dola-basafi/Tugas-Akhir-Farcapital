@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('telp')->unique();            
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->softDeletes();
             $table->bigInteger('id_role')->default('4');
             $table->foreign('id_role')->references('id')->on('role') ->constrained()
             ->onUpdate('cascade')

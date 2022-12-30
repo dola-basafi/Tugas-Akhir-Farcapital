@@ -16,12 +16,12 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-      $has = Hash::make('123321');
+      // $hash = Hash::make('123321');
         $data = [
           'nama' => 'dola',
           'email'=> 'dola@mail.com',
           'telp' => '08123456789',
-          'password' =>$has,
+          'password' =>123321,
           'id_role' => 1,          
         ];
         User::create($data);

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->foreign('id_kasir')->references('id')->on('users') ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

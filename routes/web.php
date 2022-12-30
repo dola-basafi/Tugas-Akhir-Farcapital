@@ -25,8 +25,12 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 Route::prefix('admin')->group(function(){
     Route::middleware(['auth','Role:1'])->group(function(){
-        Route::get('/',function(){return view('layouts.admin.dashboard');})->name('adminDashboard');
-        Route::get('/create',function(){return view('layouts.adminAddUser');})->name('layouts.admin.adminCreateUser');
-        Route::post('/create',[AdminController::class,'CreateUser']);
+        Route::get('/create',[AdminController::class,'CreateUserForm'])->name('CreateUserForm');
+        Route::post('/create',[AdminController::class,'CreateUser'])->name('adminCreateUser');
+        Route::get('/detail/{id}',[AdminController::class,'detailUser'])->name('detailUser');
+        Route::get('/delete/{id}',[AdminController::class,'delete'])->name('deleteUser');
+        Route::get('/dashboard/{pg?}',[AdminController::class,'dashboard'])->name('adminDashboard');
+        // Route::get('/edit/{id}',[AdminController::class,'editForm'])->name('editUserForm');
+        // Route::post('/edit/{id}',[AdminController::class,'edit'])->name('editUser');
     });
 });
