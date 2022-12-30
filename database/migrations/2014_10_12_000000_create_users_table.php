@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->bigInteger('id_role')->default('4');
+            $table->unsignedTinyInteger('status')->default(0);
             $table->foreign('id_role')->references('id')->on('role') ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');

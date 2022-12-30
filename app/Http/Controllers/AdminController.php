@@ -31,7 +31,8 @@ class AdminController extends Controller
         }
         $limit = 10;
         $pg = $pg * $limit;
-        $data = User::whereNotIn('id',[1])->offset($pg)->limit($limit)->get();
+        // $data = User::whereNotIn('id',[1])->offset($pg)->limit($limit)->get();
+        $data = User::Paginate(1);
         
         return view('layouts.admin.dashboard',compact('data'));
     }

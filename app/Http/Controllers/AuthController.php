@@ -6,11 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
   public function loginForm()
-  {
+  {   
+    dd(scandir(public_path('/barangSeed')));
     return view('layouts.loginForm');
   }
   function login(Request $request)
@@ -19,12 +21,9 @@ class AuthController extends Controller
       'telp' => ['required', 'numeric'],
       'password' => ['required'],
     ]);
-    // $user =  User::where('telp',  $request->input('telp'))->first();
-    // // $user = User::find(1);
-    // // dd($user->password);
-    // dd(Hash::check($request->input('password'),$user->password));
     if (Auth::attempt($credentials)) {
       $request->session()->regenerate();
+      // dd(Auth)
       return redirect()->route('adminDashboard');
     }
 
@@ -40,5 +39,21 @@ class AuthController extends Controller
     $request->session()->regenerateToken();
 
     return redirect('/');
+  }
+  function registerForm()
+  {
+    return view('layouts.register');
+  }
+  function register(Request $request)
+  {
+    $validate = [
+      'nama' => 'required|max:255',
+      'email' => 'required|email|unique:users',
+      'telp' => 'required|unique:users',
+      'password' => 'required',
+    ];
+    $validate = $request->validate($validate);
+    User::create($validate);
+    return redirect()->route('login');
   }
 }
