@@ -44,6 +44,6 @@ Route::prefix('gudang')->group(function(){
         Route::post('/create',[GudangController::class,'createBarang'])->name('createBarang');
         Route::get('/detail/{id}',[GudangController::class,'detailBarang'])->name('detailBarang');
         Route::post('/delete',[GudangController::class,'delete'])->name('deleteBarang');
-        Route::get('/',[GudangController::class,'dashboard'])->name('gudangDashboard');
+        Route::get('/',[GudangController::class,'index'])->name('gudangDashboard');
     });
 });

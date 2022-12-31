@@ -21,6 +21,7 @@ class RoleAuth
         if(Auth::user()->id_role != 1 && Auth::user()->id_role != $role){
             return abort(404);
         }
+        
         return $next($request);
     }
 }

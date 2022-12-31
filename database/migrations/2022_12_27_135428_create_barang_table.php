@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreign('id_supplier')->references('id')->on('supplier') ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->foreign('id_kategori')->references('id')->on('kategori')
+            $table->foreign('id_kategori')->references('id')->on('kategori') ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();

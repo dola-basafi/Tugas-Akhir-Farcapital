@@ -21,7 +21,7 @@
                         <input type="password" name="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
                     @error('password') {{ $message }} @enderror
-                    <input type="submit" value="Daftar" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
+                    <input type="submit" value="Login" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
                 </form>
                 <div class="text-center pt-12 pb-12">
                     <p>belum punya akun ? <a href="register.html" class="underline font-semibold">Daftar disini</a></p>

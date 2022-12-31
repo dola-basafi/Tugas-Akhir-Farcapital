@@ -12,7 +12,6 @@ class AuthController extends Controller
 {
   public function loginForm()
   {   
-    dd(scandir(public_path('/barangSeed')));
     return view('layouts.loginForm');
   }
   function login(Request $request)
@@ -23,8 +22,23 @@ class AuthController extends Controller
     ]);
     if (Auth::attempt($credentials)) {
       $request->session()->regenerate();
-      // dd(Auth)
-      return redirect()->route('adminDashboard');
+      // dd(Auth::user()->id_role);
+      switch (Auth::user()->id_role) {
+        case 1:
+          return redirect()->route('adminDashboard');
+          break;
+        case 2:
+          
+          return redirect()->route('gudangDashboard');
+          break;
+        case 3:
+
+          break;        
+        default:
+          # code...
+          break;
+      }
+      
     }
 
     return back()->withErrors([
