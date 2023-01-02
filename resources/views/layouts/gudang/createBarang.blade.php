@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title', 'Admin Create User')
+@section('title', 'Create Barang')
 @section('content')
 
     <div class="class="bg-white font-family-karla h-screen"">

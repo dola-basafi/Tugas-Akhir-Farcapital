@@ -14,4 +14,7 @@ class Barang extends Model
     {
         return $this->belongsTo(Kategori::class,'id_kategori','id');
     }
+    public function detail_transaksi(){
+        return $this->hasMany(DetailTransaksi::class);
+    }
 }

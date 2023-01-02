@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             SupplierSeeder::class,
             KategoriSeeder::class,
-            BarangSeeder::class
+            BarangSeeder::class,
+            MemberSeeder::class
         ]);
     }
 }

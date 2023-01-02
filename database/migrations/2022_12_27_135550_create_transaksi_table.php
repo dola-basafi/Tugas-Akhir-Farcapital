@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_kasir');
-            $table->integer('total');    
             $table->foreign('id_kasir')->references('id')->on('users') ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->bigInteger('id_member')->default('00000000001');
+            $table->foreign('id_member')->references('id')->on('users')->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();

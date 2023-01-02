@@ -16,7 +16,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-      // $hash = Hash::make('123321');
         $data = [
           'nama' => 'dola',
           'email'=> 'dola@mail.com',

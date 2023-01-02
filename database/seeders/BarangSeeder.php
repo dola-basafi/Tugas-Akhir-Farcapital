@@ -15,8 +15,7 @@ class BarangSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
-        
+    {           
         $files = Storage::allFiles('public/files');
         Storage::delete($files);
         $files = scandir(public_path('/barangSeed'));
@@ -28,6 +27,7 @@ class BarangSeeder extends Seeder
         $data = [
             [
                 'nama' => 'Daia',
+                'kode' => 'LL001',
                 'satuan' =>'Dus',
                 'harga' => 3000,
                 'stok' => 100,
@@ -38,6 +38,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'nama' => 'Ekonomi-Liquid',
+                'kode' => 'LL002',
                 'satuan' =>'Dus',
                 'harga' => 3500,
                 'stok' => 90,
@@ -48,6 +49,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'nama' => 'ChocoDrink',
+                'kode' => 'MN001',
                 'satuan' =>'Dus',
                 'harga' => 3300,
                 'stok' => 80,
@@ -58,6 +60,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'nama' => 'Floridina',
+                'kode' => 'MN002',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,
@@ -68,6 +71,7 @@ class BarangSeeder extends Seeder
             ],            
             [
                 'nama' => 'Javana',
+                'kode' => 'MN003',
                 'satuan' =>'Dus',
                 'harga' => 1000,
                 'stok' => 74,
@@ -78,6 +82,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'nama' => 'Bimoli',
+                'kode' => 'LL004',
                 'satuan' =>'Dus',
                 'harga' => 2400,
                 'stok' => 70,
@@ -88,6 +93,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'nama' => 'cap-enak',
+                'kode' => 'MN004',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,
@@ -98,6 +104,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'nama' => 'chitato',
+                'kode' => 'MK001',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,
@@ -108,6 +115,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'nama' => 'pop-mie',
+                'kode' => 'MK002',
                 'satuan' =>'Dus',
                 'harga' => 7000,
                 'stok' => 70,
@@ -118,6 +126,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'nama' => 'segitiga-biru',
+                'kode' => 'LL005',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,
@@ -129,6 +138,7 @@ class BarangSeeder extends Seeder
 
             [
                 'nama' => 'axe',
+                'kode' => 'LL006',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,
@@ -138,6 +148,7 @@ class BarangSeeder extends Seeder
                 'deskripsi' => '<p>DAIA Deterjen dengan 6 keunggulan mampu membersihkan pakaian secara all out dan menjaga warna tetap stand out. Dengan teknologi Dual Scent, White Booster, dan Softener terbagi di dalam 5 varian dari DAIA.</p>'
             ],  [
                 'nama' => 'bango',
+                'kode' => 'LL007',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,
@@ -147,6 +158,7 @@ class BarangSeeder extends Seeder
                 'deskripsi' => '<p>DAIA Deterjen dengan 6 keunggulan mampu membersihkan pakaian secara all out dan menjaga warna tetap stand out. Dengan teknologi Dual Scent, White Booster, dan Softener terbagi di dalam 5 varian dari DAIA.</p>'
             ],  [
                 'nama' => 'lipton',
+                'kode' => 'LL008',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,
@@ -156,6 +168,7 @@ class BarangSeeder extends Seeder
                 'deskripsi' => '<p>DAIA Deterjen dengan 6 keunggulan mampu membersihkan pakaian secara all out dan menjaga warna tetap stand out. Dengan teknologi Dual Scent, White Booster, dan Softener terbagi di dalam 5 varian dari DAIA.</p>'
             ],  [
                 'nama' => 'pepsodent',
+                'kode' => 'LL009',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,
@@ -165,6 +178,7 @@ class BarangSeeder extends Seeder
                 'deskripsi' => '<p>DAIA Deterjen dengan 6 keunggulan mampu membersihkan pakaian secara all out dan menjaga warna tetap stand out. Dengan teknologi Dual Scent, White Booster, dan Softener terbagi di dalam 5 varian dari DAIA.</p>'
             ],  [
                 'nama' => 'molto',
+                'kode' => 'LL003',
                 'satuan' =>'Dus',
                 'harga' => 2000,
                 'stok' => 70,

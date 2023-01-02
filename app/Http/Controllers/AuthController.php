@@ -27,15 +27,14 @@ class AuthController extends Controller
         case 1:
           return redirect()->route('adminDashboard');
           break;
-        case 2:
-          
+        case 2:          
           return redirect()->route('gudangDashboard');
           break;
         case 3:
-
+          return redirect()->route('kasirTransaksiForm');
           break;        
         default:
-          # code...
+          
           break;
       }
       
@@ -69,5 +68,22 @@ class AuthController extends Controller
     $validate = $request->validate($validate);
     User::create($validate);
     return redirect()->route('login');
+  }
+  function profilForm()
+  {
+    return view('layouts.profil',['user'=> Auth::user()]);
+  }
+  function updateProfil(Request $request)
+  {$validate = [
+      'nama' => 'required|max:255',
+      'email' => 'required|email',
+      'telp' => 'required',      
+    ];    
+    // dd($request->all());
+    $validate = $request->validate($validate);
+    $user = User::find(Auth::id());
+    // dd($user);
+    $user->update($validate);
+    return redirect()->route('profil');
   }
 }

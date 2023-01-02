@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class GudangController extends Controller
@@ -19,10 +21,16 @@ class GudangController extends Controller
     }
     function createBarang(Request $request)
     {
-        // dd( $request->file('gambar'));
-        // $request->input('id_kategori') = intval($request->input('id_kategori')) ;
+
         $request['id_kategori'] = strval($request->input('id_kategori'));
         $request['id_supplier'] = strval($request->input('id_supplier'));
+
+        $kode = Kategori::find($request['id_kategori']);
+        $kodeName = DB::table('barang')->where('id_kategori', '=' ,$request->input('id_supplier') )->latest() ->first();
+        $kode = $kode->kode .  sprintf('%03d', intval(substr($kodeName->kode,2)+1));
+        // dd($kode);
+        
+
         $validate = [
             'nama' => 'required|max:255',
             'harga' => 'required|numeric|min:1',
@@ -35,12 +43,12 @@ class GudangController extends Controller
         ];
 
         $validate = $request->validate($validate);
+        $validate['kode'] = $kode;
         
             $path = Storage::putFile('public/files',$request->file('gambar'));
             $store = explode('/',$path);
             $store[0] = 'storage';
             $validate['gambar'] =implode('/',$store);
-            // dd($validate['gambar']);
         
         Barang::create($validate);
         return redirect()->route('gudangDashboard');

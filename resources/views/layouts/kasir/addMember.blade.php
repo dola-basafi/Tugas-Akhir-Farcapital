@@ -1,19 +1,13 @@
-@extends('layouts.template',[])
-@section('title', 'register')
-
+@extends('layouts.template')
+@section('title', 'Tambah Member')
 @section('content')
-
-
-
-
-
     <div class="class="bg-white font-family-karla h-screen"">
         <div class="w-full flex flex-wrap">
             <!-- Login Section -->
             <div class="w-full md:w-1/2 flex flex-col">
                 <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
                     <p class="text-center text-3xl">Buat User</p>
-                    <form class="flex flex-col pt-3 md:pt-8" action="{{ route('adminCreateUser') }} " method="post">
+                    <form class="flex flex-col pt-3 md:pt-8" action="{{ route('kasirTransaksi') }} " method="post">
                         @csrf
                         <div class="flex flex-col pt-4">
                             <label for="nama" class="text-lg">Name</label>
@@ -45,17 +39,6 @@
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
                         </div>
                         @error('password')
-                            {{ $message }}
-                        @enderror
-                        <div class="flex flex-col pt-4">
-                            <label for="role" class="text-lg">Role</label>
-                            <select name="id_role" id="id_role"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-                                <option value="2">Gudang</option>
-                                <option value="3">Kasir</option>
-                            </select>
-                        </div>
-                        @error('id_role')
                             {{ $message }}
                         @enderror
                         <input type="submit" value="Daftar"

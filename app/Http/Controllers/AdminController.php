@@ -24,15 +24,16 @@ class AdminController extends Controller
         User::create($validate);
         return redirect()->route('adminDashboard');
     }
-    function dashboard($pg = 0)
+    function dashboard()
     {
-        if ($pg < 2 || gettype($pg)=='string') {
-            $pg = 0;
-        }
-        $limit = 10;
-        $pg = $pg * $limit;
+        // if ($pg < 2 || gettype($pg)=='string') {
+        //     $pg = 0;
+        // }
+        // $limit = 10;
+        // $pg = $pg * $limit;
         // $data = User::whereNotIn('id',[1])->offset($pg)->limit($limit)->get();
-        $data = User::whereNotIn('id',[1])->Paginate(1);
+        
+        $data = User::whereNotIn('id',[1])->Paginate(5);
         
         return view('layouts.admin.dashboard',compact('data'));
     }
