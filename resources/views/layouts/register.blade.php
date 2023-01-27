@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title', 'register')
+@section('title', 'Register')
 @section('content')
 <div class="class="bg-white font-family-karla h-screen"">
 
@@ -34,7 +34,7 @@
                     <input type="submit" value="Daftar" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
                 </form>
                 <div class="text-center pt-12 pb-12">
-                    <p>sudah punya akun ? <a href="register.html" class="underline font-semibold">Masuk disini</a></p>
+                    <p>sudah punya akun ? <a href="login" class="underline font-semibold">Masuk disini</a></p>
                 </div>
             </div>
 

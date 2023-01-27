@@ -1,5 +1,5 @@
 @section('title', 'Transaksi')
-<div  x-data>
+<div  x-data = "{transaksi : @entangle('transaksi')}">
     <div class=" flex items-center justify-center" style="background: #edf2f7;">
         <section class="bg-white dark:bg-gray-900">
             <div class="container px-6 py-10 mx-auto">
@@ -7,9 +7,10 @@
                     Barang</h1>
                 <div   class=" grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
                     {{-- @dd($data) --}}
+                   
                     @foreach ($data as $item)
                         <div class="lg:flex bg-gradient-to-r from-green-400 to-blue-500" >
-                            <img class="object-scale-down w-full h-56 rounded-full lg:w-64" src="{{ $item->gambar }}"
+                            <img class="object-scale-down w-full h-56 rounded-full lg:w-64" src="../{{ $item->gambar }}"
                                 alt="">
                             <div class="flex flex-col justify-between py-6 lg:mx-6">
                                 <p class="text-xl font-semibold text-gray-800  dark:text-white ">
@@ -31,11 +32,11 @@
                     <p x-text="$wire.total"></p> --}}
                     {{-- <p x-text="modal"></p> --}}
                     
-                         @foreach ($this->transaksi as $key => $value) 
-                    {{$value[0]}}
+                    {{-- @foreach (transaksi as $key => $value)  --}}
+                    {{-- {{$value[0]}} --}}
                     {{-- @dd($value[0]) --}}
                        {{-- <p >{{$key}}</p> --}}
-                   @endforeach
+                    {{-- @endforeach --}}
                         <button wire:click="submit">Submit</button>
                 </div>
             </div>
@@ -45,7 +46,7 @@
 
     {{-- modal    --}}
     {{-- @dd($transaksi) --}}
-    <main x-show=false  id="content" role="main" class=" overflow-y-auto top-20   max-w-md mx-auto p-6 fixed inset-0">
+    <main x-show=false  id="content" role="main" class=" hidden overflow-y-auto top-20   max-w-md mx-auto p-6 fixed inset-0">
         <div class="mt-7 bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700">
             <div class="p-4 sm:p-7">
                 <div class="mt-5">

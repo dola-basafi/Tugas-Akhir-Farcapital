@@ -12,14 +12,10 @@ use function PHPUnit\Framework\isNull;
 
 class TransaksiKasir extends Component
 {
-
     public $data;
     public $transaksi=array();
     public $total = 0;
     public $idMember;
-
-   
-
     public function submit()
     {
         if (!isNull($this->idMember)) {
@@ -40,17 +36,13 @@ class TransaksiKasir extends Component
         }
     }
 
-    public function addTransaksi($id, $nama, $harga){
-        
+    public function addTransaksi($id, $nama, $harga){        
         if (isset($this->transaksi[$id])) {
             $this->transaksi[$id][2] += 1;
             $this->transaksi[$id][3] = $this->transaksi[$id][1] * $this->transaksi[$id][2];
-            // dd($this->transaksi[$id]);            
         }else{            
             $this->transaksi[$id] = [$nama,$harga,1,$harga];
-            // dd($this->transaksi);
         }
-
     }
     public function mount(){
         $this->transaksi[14] = ['daia',2200,1,2200];
@@ -58,10 +50,7 @@ class TransaksiKasir extends Component
     }
     public function render()
     {
-        // dd(json_encode($this->transaksi));
         $this->total += 1;
-        
-        
         return view('livewire.transaksi-kasir');
     }
 }

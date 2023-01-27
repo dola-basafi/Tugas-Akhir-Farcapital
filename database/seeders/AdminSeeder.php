@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
           'nama' => 'dola',
           'email'=> 'dola@mail.com',
           'telp' => '08123456789',
-          'password' =>123321,
+          'password' =>'qweewq',
           'id_role' => 1,       
           'status' => 1,
         ];

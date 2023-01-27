@@ -31,20 +31,17 @@ Route::middleware('auth')->group(function(){
     Route::get('/profil',[AuthController::class,'profilForm'])->name('profilForm');
     Route::post('/profil',[AuthController::class,'updateProfil'])->name('profil');
 });
-
-
 Route::prefix('admin')->group(function(){
     Route::middleware(['auth','Role:1'])->group(function(){
-        Route::get('/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
-        Route::get('/create',[AdminController::class,'CreateUserForm'])->name('CreateUserForm');
+        Route::get('/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');        
+        Route::get('/create',[AdminController::class,'CreateUserForm'])->name('adminCreateUserForm');
         Route::post('/create',[AdminController::class,'CreateUser'])->name('adminCreateUser');
-        Route::get('/detail/{id}',[AdminController::class,'detailUser'])->name('detailUser');
-        Route::get('/delete/{id}',[AdminController::class,'delete'])->name('deleteUser');
-        // Route::get('/edit/{id}',[AdminController::class,'editForm'])->name('editUserForm');
-        // Route::post('/edit/{id}',[AdminController::class,'edit'])->name('editUser');
+        // Route::get('/detail/{id}',[AdminController::class,'detailUser'])->name('adminDetailUser');
+        Route::get('/delete/{id}',[AdminController::class,'delete'])->name('adminDeleteUser');
+        Route::get('/edit/{id}',[AdminController::class,'editForm'])->name('adminEditUserForm');
+        Route::post('/edit/{id}',[AdminController::class,'edit'])->name('adminEditUser');
     });
 });
-
 Route::prefix('gudang')->group(function(){
     Route::middleware(['auth','Role:2'])->group(function(){
         Route::get('/create',[GudangController::class,'createBarangForm'])->name('createBarangForm');
@@ -54,7 +51,6 @@ Route::prefix('gudang')->group(function(){
         Route::get('/',[GudangController::class,'index'])->name('gudangDashboard');
     });
 });
-
 Route::prefix('kasir')->group(function(){
     Route::middleware(['auth','Role:3'])->group(function(){
         Route::get('/',TransaksiKasir::class);

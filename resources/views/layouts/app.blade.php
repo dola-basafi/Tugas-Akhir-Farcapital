@@ -16,6 +16,6 @@
 @livewireScripts
 @endpush
 @push('alpineScript')
-<script src="{{ asset('/files/alpine.js') }}" defer></script>
+<script defer src="{{ asset('/files/alpine.js') }}" defer></script>
 @endpush
 
